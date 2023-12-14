@@ -1,4 +1,5 @@
-FROM openjdk
-COPY target/*.war /
+FROM openjdk:17-jdk-slim
+WORKDIR /app
+COPY target/jenkins-docker-0.0.1-SNAPSHOT.war /app
 EXPOSE 8080
-ENTRYPOINT ["java","-jar","/jenkins-docker-0.0.1-SNAPSHOT.war"]
+CMD ["java","-jar","jenkins-docker-0.0.1-SNAPSHOT.war"]
